@@ -10,9 +10,10 @@ set 2 env vars YS_EMAIL and YS_PASSWORD with your email and password to log in t
 also need to substitute relevant values in lines 14-25 
 '''
 
-#find this by inspecting the page near the class description as this link is not yet  visible (5 digit number) - screenshot attached
-mbo_id = "12586"
-weekday = "Sun." # Thurs.
+#find mbo_id by inspecting the page near the class description as this link is not yet  visible (5 digit number) - screenshot attached
+#there seems to be a pattern, e.g. strong this sun is 13099 and strong next sunday is 13100
+mbo_id = "13100"
+weekday = "Sun." # abbreviation with period - e.g. Thurs.
 month = "Feb"
 day = "6"
 year = "2021"
@@ -22,11 +23,13 @@ ampm = "am"
 classname = "STRONG"
 PATH = "/Applications/chromedriver" #substitute path to your Selenium driver for Chrome
 
-run_time = datetime(2021,1,29,14,18,0) #sub in the time you want it to run
+run_time = datetime(2021,1,31,0,0,1) #sub in the time you want it to run
 
 registration_url = f"https://cart.mindbodyonline.com/sites/93972/cart/add_booking?item%5Binfo%5D={weekday}+{month}+{day}%2C+{year}+{hour}%3A{minute}{ampm}" +               \
                    f"&amp;item%5Bmbo_id%5D={mbo_id}&amp;item%5Bmbo_location_id%5D=1&amp;item%5Bname%5D={classname}&amp;item%5Btype%5D=Class"
 
+
+# format https://cart.mindbodyonline.com/sites/93972/cart/add_booking?item%5Binfo%5D=Tue.+Feb++2%2C+2021++4%3A30+pm&item%5Bmbo_id%5D=13920&item%5Bmbo_location_id%5D=1&item%5Bname%5D=STRONG&item%5Btype%5D=Class&source=schedule_v1
 def book_st8_next_week(url: str):
     driver = webdriver.Chrome(PATH)
     success = False
