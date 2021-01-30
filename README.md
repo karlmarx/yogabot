@@ -2,6 +2,7 @@
 script to book yoga classes on a schedule.  this is just a simple utility i use, but feel free to make a pull request if you have anything to add or improve.
 
 # requirements
+* Python 3
 * Selenium
 * APScheduler
 * Selenium Chrome WebDriver
